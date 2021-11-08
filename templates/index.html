@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Twitter</title>
+</head>
+<body>
+
+    <h1>
+        Twitter
+    </h1>
+
+    <form action="/" method="post">
+        <input type="text" placeholder="Author" name="author" id="author">
+        <label for="author"></label>
+        <textarea name="message" id="message" cols="30" rows="3" placeholder="What's happening?"></textarea>
+        <label for="message"></label>
+        <input type="submit" value="Tweet">
+    </form>
+
+    <ul>
+        {% for tweet in tweets %}
+            <li>
+                {{ tweet.author }}: {{ tweet.message }}
+            </li>
+        {% endfor %}
+    </ul>
+
+</body>
+</html>
