@@ -1,10 +1,11 @@
 from flask import Flask, render_template, request
 
 from models.tweet import Tweet
+from services.tweet_service import TweetService
 
 app = Flask(__name__)
 
-tweets = []
+tweet_service = TweetService()
 
 
 @app.route("/", methods=['GET', 'POST'])
@@ -13,6 +14,12 @@ def home_page():
         author = request.form['author']
         message = request.form['message']
         tweet = Tweet(author, message)
-        tweets.append(tweet)
+        tweet_service.save_tweet(tweet)
 
-    return render_template('index.html', tweets=tweets)
+    return render_template(
+        'index.html',
+        tweets=tweet_service.get_all_tweets())
+
+
+if __name__ == '__main__':
+    app.run(debug=True)
