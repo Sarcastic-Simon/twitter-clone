@@ -1,0 +1,7 @@
+{% import 'fragments/form_builder.html' as builder %}
+
+<form action="/" method="post">
+    {{ builder.input('author') }}
+    {{ builder.textarea('message') }}
+    <input type="submit" value="Tweet">
+</form>

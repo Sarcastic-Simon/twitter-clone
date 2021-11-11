@@ -1,0 +1,9 @@
+<ul>
+    {% for tweet in tweets %}
+        <li>
+            {{ tweet.author }},
+            {{ tweet.date_published|humanize }}:
+            {{ tweet.message }}
+        </li>
+    {% endfor %}
+</ul>

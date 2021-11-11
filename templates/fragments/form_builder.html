@@ -1,0 +1,12 @@
+{% macro input(name) -%}
+    <input type="text" placeholder="{{ name|capitalize }}"
+           name="{{ name }}" id="{{ name }}">
+    <label for="{{ name }}"></label>
+{%- endmacro %}
+
+{% macro textarea(name) -%}
+    <textarea name="{{ name }}" id="{{ name }}"
+              cols="30" rows="3"
+              placeholder="{{ name|capitalize }}"></textarea>
+    <label for="{{ name }}"></label>
+{%- endmacro %}
