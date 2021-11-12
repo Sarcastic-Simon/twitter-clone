@@ -8,3 +8,6 @@
 ## Version 2
 - On-disk persistence
 
+## Version 3
+- only authenticated users can publish tweets
+

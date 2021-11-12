@@ -6,7 +6,27 @@
 </head>
 <body>
     <h1>Twitter</h1>
-    {% include 'fragments/create_tweet.html' %}
+    {% if 'username' in session %}
+        {% include 'fragments/create_tweet.html' %}
+    {% endif %}
     {% include 'fragments/display_tweets.html' %}
+
+    {% if 'username' not in session %}
+        <p>
+            <a href="/register">
+                Register
+            </a>
+        </p>
+        <p>
+            <a href="/login">
+                Login
+            </a>
+        </p>
+    {% else %}
+        <a href="/logout">
+            Logout
+        </a>
+    {% endif %}
+
 </body>
 </html>

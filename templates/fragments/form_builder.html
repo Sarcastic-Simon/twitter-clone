@@ -1,5 +1,5 @@
-{% macro input(name) -%}
-    <input type="text" placeholder="{{ name|capitalize }}"
+{% macro input(name, type='text') -%}
+    <input type="{{ type }}" placeholder="{{ name|capitalize }}"
            name="{{ name }}" id="{{ name }}">
     <label for="{{ name }}"></label>
 {%- endmacro %}

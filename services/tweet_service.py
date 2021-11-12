@@ -12,8 +12,8 @@ class TweetService:
         self.storage_service = storage_service
 
     def save_tweet(self, tweet: Tweet) -> None:
-        self.storage_service.store_tweet(tweet)
         self.cache_service.store_tweet(tweet)
+        self.storage_service.store_tweet(tweet)
 
     def get_all_tweets(self) -> List[Tweet]:
         if not self.cache_service.load_tweets():
@@ -21,3 +21,6 @@ class TweetService:
             self.cache_service.store_tweets(tweets)
 
         return self.cache_service.load_tweets()
+
+
+tweet_service = TweetService()

@@ -1,26 +1,32 @@
-from flask import Flask, render_template, request
+from os import getenv
+
+from flask import Flask
 from flask_humanize import Humanize
 
-from models.tweet import Tweet
-from services.tweet_service import TweetService
+from routes.home_page_route import home_page_route
+from routes.login_route import login_route
+from routes.logout_route import logout_route
+from routes.register_route import register_route
 
 app = Flask(__name__)
+app.secret_key = getenv('TWITTER_SECRET_KEY')
 Humanize(app)
-
-tweet_service = TweetService()
 
 
 @app.route("/", methods=['GET', 'POST'])
-def home_page() -> str:
-    if request.method == 'POST':
-        author = request.form['author']
-        message = request.form['message']
-        tweet = Tweet(author, message)
-        tweet_service.save_tweet(tweet)
+def home_page(): return home_page_route()
 
-    return render_template(
-        'index.html',
-        tweets=tweet_service.get_all_tweets())
+
+@app.route("/register", methods=['GET', 'POST'])
+def register(): return register_route()
+
+
+@app.route("/login", methods=['GET', 'POST'])
+def login(): return login_route()
+
+
+@app.route("/logout")
+def logout(): return logout_route()
 
 
 if __name__ == '__main__':
