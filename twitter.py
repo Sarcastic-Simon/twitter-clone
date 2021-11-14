@@ -18,15 +18,15 @@ def home_page(): return home_page_route()
 
 
 @app.route("/register", methods=['GET', 'POST'])
-def register(): return register_route()
+def register_page(): return register_route()
 
 
 @app.route("/login", methods=['GET', 'POST'])
-def login(): return login_route()
+def login_page(): return login_route()
 
 
 @app.route("/logout")
-def logout(): return logout_route()
+def logout_page(): return logout_route()
 
 
 if __name__ == '__main__':

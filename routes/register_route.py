@@ -1,13 +1,13 @@
 from flask import request, url_for, render_template, session, flash
 from werkzeug.utils import redirect
 
-from services.user_service import user_service
+from services.user_service import register
 
 
 def register_route():
     if request.method == 'POST':
-        user = user_service.register(request.form['username'],
-                                     request.form['password'])
+        user = register(request.form['username'],
+                        request.form['password'])
         if user is not None:
             session['username'] = request.form['username']
             return redirect(url_for('home_page'))
