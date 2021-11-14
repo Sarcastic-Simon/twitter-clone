@@ -24,3 +24,6 @@ class CacheService:
 
     def load_user(self, username: str) -> User:
         return self.users.get(username)
+
+
+cache_service = CacheService()
