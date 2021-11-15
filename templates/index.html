@@ -1,10 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Twitter</title>
-</head>
-<body>
+{% extends 'fragments/base.html' %}
+{% block title %}Twitter{% endblock %}
+{% block content %}
     <h1>Twitter</h1>
     {% if 'username' in session %}
         {% include 'fragments/create_tweet.html' %}
@@ -12,21 +8,9 @@
     {% include 'fragments/display_tweets.html' %}
 
     {% if 'username' not in session %}
-        <p>
-            <a href="/register">
-                Register
-            </a>
-        </p>
-        <p>
-            <a href="/login">
-                Login
-            </a>
-        </p>
+        <p><a href="/register">Register</a></p>
+        <p><a href="/login">Login</a></p>
     {% else %}
-        <a href="/logout">
-            Logout
-        </a>
+        <a href="/logout">Logout</a>
     {% endif %}
-
-</body>
-</html>
+{% endblock %}
