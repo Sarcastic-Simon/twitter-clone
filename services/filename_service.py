@@ -1,8 +1,8 @@
 from os.path import join
 
-from config.constants import tweets_folder, filename_pattern, users_folder
-from models.tweet import Tweet
-from models.user import User
+from config import (tweets_folder, filename_pattern,
+                    users_folder, file_extension)
+from models import Tweet, User
 
 
 def tweet_load_path(filename: str) -> str:
@@ -12,7 +12,7 @@ def tweet_load_path(filename: str) -> str:
 def tweet_store_path(tweet: Tweet) -> str:
     name = _tweet_filename(tweet)
     path = join(tweets_folder, name)
-    return path + '.json'
+    return path + file_extension
 
 
 def _tweet_filename(tweet: Tweet) -> str:
@@ -21,8 +21,8 @@ def _tweet_filename(tweet: Tweet) -> str:
 
 def user_load_path(username: str) -> str:
     path = join(users_folder, username)
-    return path + '.json'
+    return path + file_extension
 
 
 def user_store_path(user: User) -> str:
-    return join(users_folder, user.username) + '.json'
+    return join(users_folder, user.username) + file_extension

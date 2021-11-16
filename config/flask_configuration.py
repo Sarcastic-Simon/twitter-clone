@@ -2,7 +2,7 @@ from os import getenv
 
 from flask_humanize import Humanize
 
-from config.context_setups import setup_user
+from config import setup_user
 
 
 def configure_flask(app):

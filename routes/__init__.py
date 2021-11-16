@@ -1,0 +1,3 @@
+from routes.auth_routes import register_auth_routes
+from routes.follow_routes import register_follow_routes
+from routes.profile_routes import register_profile_routes

@@ -1,7 +1,6 @@
 from typing import List
 
-from models.tweet import Tweet
-from models.user import User
+from models import Tweet, User
 from services.cache_service import (store_tweet_in_cache,
                                     load_tweets_from_cache,
                                     store_tweets_in_cache)

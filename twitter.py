@@ -1,9 +1,9 @@
 from flask import Flask
 
-from config.configure_flask import configure_flask
-from routes.auth_routes import register_auth_routes
-from routes.follow_routes import register_follow_routes
-from routes.profile_routes import register_profile_routes
+from config.flask_configuration import configure_flask
+from routes import (register_auth_routes,
+                    register_follow_routes,
+                    register_profile_routes)
 
 app = Flask(__name__)
 configure_flask(app)

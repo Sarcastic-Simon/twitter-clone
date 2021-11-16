@@ -11,6 +11,7 @@ def home_route():
 
     if request.method == 'POST':
         save_tweet(Tweet(g.user.username, request.form['message']))
-
-    return render_template('index.html',
-                           tweets=get_follower_tweets(g.user))
+        return redirect(url_for('profile', username=g.user.username))
+    else:
+        return render_template('index.html',
+                               tweets=get_follower_tweets(g.user))

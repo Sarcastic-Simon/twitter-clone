@@ -1,7 +1,6 @@
 from typing import List
 
-from models.tweet import Tweet
-from models.user import User
+from models import Tweet, User
 
 _tweets = []
 _users = {}

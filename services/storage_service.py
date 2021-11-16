@@ -4,9 +4,8 @@ from typing import List, Optional
 
 from jsonpickle import encode, decode
 
-from config.constants import tweets_folder
-from models.tweet import Tweet
-from models.user import User
+from config import tweets_folder
+from models import Tweet, User
 from services.filename_service import (tweet_store_path, tweet_load_path,
                                        user_store_path, user_load_path)
 
