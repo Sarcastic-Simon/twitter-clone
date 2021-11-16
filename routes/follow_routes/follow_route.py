@@ -6,6 +6,6 @@ from services.user_service import add_follower
 
 def follow_route(username: str):
     if g.user is None:
-        return redirect(url_for('login_page'))
+        return redirect(url_for('login'))
     add_follower(g.user, username)
-    return redirect(url_for('home_page'))
+    return redirect(url_for('home'))

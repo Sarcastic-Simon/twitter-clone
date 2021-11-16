@@ -10,9 +10,9 @@ def register_route():
                         request.form['password'])
         if user is not None:
             session['username'] = request.form['username']
-            return redirect(url_for('home_page'))
+            return redirect(url_for('home'))
         else:
             flash('Both username and password are required', 'errors')
-            return redirect(url_for('register_page'))
+            return redirect(url_for('register'))
     else:
-        return render_template('register.html')
+        return render_template('auth/register.html')

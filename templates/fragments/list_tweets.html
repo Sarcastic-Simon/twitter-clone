@@ -1,0 +1,11 @@
+<ul>
+  {% for tweet in tweets %}
+    <li>
+      <a href="{{ url_for('profile', username=tweet.author) }}">
+        {{ tweet.author }}
+      </a>
+      {{ tweet.date_published|humanize }}:
+      {{ tweet.message }}
+    </li>
+  {% endfor %}
+</ul>

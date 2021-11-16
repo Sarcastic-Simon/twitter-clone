@@ -10,9 +10,9 @@ def login_route():
                      request.form['password'])
         if user is not None:
             session['username'] = request.form['username']
-            return redirect(url_for('home_page'))
+            return redirect(url_for('home'))
         else:
             flash('Incorrect credentials', 'errors')
-            return redirect(url_for('login_page'))
+            return redirect(url_for('login'))
     else:
-        return render_template('login.html')
+        return render_template('auth/login.html')
