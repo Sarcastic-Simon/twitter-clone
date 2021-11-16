@@ -13,6 +13,6 @@ def register_route():
             return redirect(url_for('home_page'))
         else:
             flash('Both username and password are required', 'errors')
-            return redirect(url_for('register'))
+            return redirect(url_for('register_page'))
     else:
         return render_template('register.html')

@@ -11,3 +11,6 @@
 ## Version 3
 - only authenticated users can publish tweets
 
+## Version 4
+- follow functionality
+

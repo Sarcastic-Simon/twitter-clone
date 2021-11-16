@@ -7,8 +7,8 @@ from jsonpickle import encode, decode
 from config.constants import tweets_folder
 from models.tweet import Tweet
 from models.user import User
-from services.filename_service import tweet_store_path, tweet_load_path, \
-    user_store_path, user_load_path
+from services.filename_service import (tweet_store_path, tweet_load_path,
+                                       user_store_path, user_load_path)
 
 
 def store_tweet_on_disk(tweet: Tweet) -> None:

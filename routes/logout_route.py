@@ -3,5 +3,5 @@ from werkzeug.utils import redirect
 
 
 def logout_route():
-    session.pop('username', None)
+    session.pop('username')
     return redirect(url_for('home_page'))

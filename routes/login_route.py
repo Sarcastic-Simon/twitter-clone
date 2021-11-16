@@ -13,6 +13,6 @@ def login_route():
             return redirect(url_for('home_page'))
         else:
             flash('Incorrect credentials', 'errors')
-            return redirect(url_for('login'))
+            return redirect(url_for('login_page'))
     else:
         return render_template('login.html')

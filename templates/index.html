@@ -1,16 +1,33 @@
 {% extends 'fragments/base.html' %}
-{% block title %}Twitter{% endblock %}
-{% block content %}
-    <h1>Twitter</h1>
-    {% if 'username' in session %}
-        {% include 'fragments/create_tweet.html' %}
-    {% endif %}
-    {% include 'fragments/display_tweets.html' %}
 
-    {% if 'username' not in session %}
-        <p><a href="/register">Register</a></p>
-        <p><a href="/login">Login</a></p>
-    {% else %}
-        <a href="/logout">Logout</a>
+{% import 'fragments/display.html' as display %}
+
+{% block title %}
+  Twitter
+{% endblock %}
+
+{% block content %}
+  <h1>Twitter</h1>
+  {% if 'username' in session %}
+    <p>Logged in as: {{ session['username'] }}</p>
+    {% include 'fragments/create_tweet.html' %}
+    {% if follower_tweets %}
+      <h2>Tweets from followers</h2>
+      {{ display.tweets(follower_tweets, True) }}
     {% endif %}
+    {% if my_tweets %}
+      <h2>My tweets</h2>
+      {{ display.tweets(my_tweets, None) }}
+    {% endif %}
+  {% endif %}
+
+  <h2>All tweets</h2>
+  {{ display.tweets(all_tweets, False) }}
+
+  {% if 'username' not in session %}
+    <p><a href="/register">Register</a></p>
+    <p><a href="/login">Login</a></p>
+  {% else %}
+    <a href="/logout">Logout</a>
+  {% endif %}
 {% endblock %}

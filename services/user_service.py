@@ -1,6 +1,6 @@
 from typing import Optional
 
-from bcrypt import checkpw
+from werkzeug.security import check_password_hash
 
 from models.user import User
 from services.cache_service import store_user_in_cache, load_user_from_cache
@@ -17,9 +17,26 @@ def register(username: str, password: str) -> Optional[User]:
 
 
 def login(username: str, password: str) -> Optional[User]:
-    user = load_user_from_cache(username)
-    if user is None:
-        user = load_user_from_disk(username)
+    user = get_user(username)
     if user is not None:
-        if checkpw(password.encode(), user.password):
+        if check_password_hash(user.password, password):
             return user
+
+
+def add_follower(user: User, username: str) -> None:
+    user.followers.add(username)
+    store_user_in_cache(user)
+    store_user_on_disk(user)
+
+
+def remove_follower(user: User, username: str) -> None:
+    user.followers.remove(username)
+    store_user_in_cache(user)
+    store_user_on_disk(user)
+
+
+def get_user(username: str = None) -> Optional[User]:
+    if username is None:
+        return None
+    return (load_user_from_cache(username)
+            or load_user_from_disk(username))
