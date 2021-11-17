@@ -7,7 +7,8 @@ from services.cache_service import (store_tweet_in_cache,
 from services.storage_service import store_tweet_on_disk, load_tweets_from_disk
 
 
-def save_tweet(tweet: Tweet) -> None:
+def post_tweet(username: str, message: str) -> None:
+    tweet = Tweet(username, message)
     store_tweet_in_cache(tweet)
     store_tweet_on_disk(tweet)
 
@@ -21,11 +22,6 @@ def get_other_tweets(user: User) -> List[Tweet]:
     return [tweet for tweet in _all_tweets()
             if tweet.author not in user.followers
             if tweet.author != user.username] if user else _all_tweets()
-
-
-def get_my_tweets(user: User) -> List[Tweet]:
-    return [tweet for tweet in _all_tweets()
-            if tweet.author == user.username] if user else []
 
 
 def get_follower_tweets(user: User) -> List[Tweet]:

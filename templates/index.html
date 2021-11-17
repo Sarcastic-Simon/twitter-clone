@@ -1,16 +1,12 @@
-{% extends 'fragments/base.html' %}
+{% extends 'layout/base.html' %}
 
 {% block title %}
   Twitter
 {% endblock %}
 
 {% block content %}
-  {% if 'username' in session %}
-    {% include 'fragments/create_tweet.html' %}
-    {% if tweets %}
-      <h2>Latest from your followers</h2>
-      {% include 'fragments/list_tweets.html' %}
-    {% endif %}
-    <a href="{{ url_for('explore') }}">Explore others</a>
-  {% endif %}
+  <h1>Home</h1>
+  {% include 'fragments/create_tweet.html' %}
+  <h2>Latest from your followers</h2>
+  {% include 'fragments/list_tweets.html' %}
 {% endblock %}

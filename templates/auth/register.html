@@ -1,4 +1,4 @@
-{% extends 'fragments/base.html' %}
+{% extends 'layout/base.html' %}
 
 {% import 'fragments/form_builder.html' as builder %}
 
@@ -8,9 +8,7 @@
 
 {% block content %}
   <h1>Register</h1>
-
   {% include 'fragments/error_flashes.html' %}
-
   <form action="/register" method="post">
     {{ builder.input('username') }}
     {{ builder.input('password', type='password') }}

@@ -1,7 +1,7 @@
 from flask import request, url_for, render_template, session, flash
 from werkzeug.utils import redirect
 
-from services.user_service import register
+from services.auth_service import register
 
 
 def register_route():
@@ -12,7 +12,7 @@ def register_route():
             session['username'] = request.form['username']
             return redirect(url_for('home'))
         else:
-            flash('Both username and password are required', 'errors')
+            flash('Username already taken!', 'errors')
             return redirect(url_for('register'))
     else:
         return render_template('auth/register.html')

@@ -1,24 +1,12 @@
-{% extends 'fragments/base.html' %}
+{% extends 'layout/base.html' %}
 
 {% block title %}
   {{ username }}
 {% endblock %}
 
 {% block content %}
-  <h2>{{ username }}</h2>
-  {% if g.user.username == username %}
-    <a href="/logout">Logout</a>
-  {% else %}
-    {% include 'fragments/follow_button.html' %}
-  {% endif %}
-  {% if tweets %}
-    <h3>Tweets</h3>
-    <ul>
-      {% for tweet in tweets %}
-        <li>
-          {{ tweet.date_published|humanize }}: {{ tweet.message }}
-        </li>
-      {% endfor %}
-    </ul>
-  {% endif %}
+  <h1>{{ username }}</h1>
+  {% include 'fragments/profile_buttons.html' %}
+  <h2>Tweets</h2>
+  {% include 'fragments/list_tweets.html' %}
 {% endblock %}

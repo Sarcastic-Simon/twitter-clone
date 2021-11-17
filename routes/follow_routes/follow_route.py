@@ -1,7 +1,7 @@
 from flask import url_for, g
 from werkzeug.utils import redirect
 
-from services.user_service import add_follower
+from services.follow_service import add_follower
 
 
 def follow_route(username: str):

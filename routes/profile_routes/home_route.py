@@ -1,8 +1,7 @@
 from flask import request, url_for, render_template, g
 from werkzeug.utils import redirect
 
-from models.tweet import Tweet
-from services.tweet_service import (save_tweet, get_follower_tweets)
+from services.tweet_service import get_follower_tweets, post_tweet
 
 
 def home_route():
@@ -10,7 +9,8 @@ def home_route():
         return redirect(url_for('login'))
 
     if request.method == 'POST':
-        save_tweet(Tweet(g.user.username, request.form['message']))
+        post_tweet(g.user.username,
+                   request.form['message'])
         return redirect(url_for('profile', username=g.user.username))
     else:
         return render_template('index.html',

@@ -1,7 +1,7 @@
 from os.path import join
 
-from config import (tweets_folder, filename_pattern,
-                    users_folder, file_extension)
+from config import (tweets_folder, filename_pattern, users_folder,
+                    file_extension)
 from models import Tweet, User
 
 

@@ -1,0 +1,18 @@
+a.button {
+  text-decoration: none;
+  background-color: var(--blue);
+  color: white;
+  padding: 15px;
+  border-radius: 10px;
+  font-weight: bold;
+}
+
+h1, h2 {
+  color: var(--blue);
+  font-size: 3rem;
+}
+
+.error {
+  color: red;
+  font-size: 1.3rem;
+}

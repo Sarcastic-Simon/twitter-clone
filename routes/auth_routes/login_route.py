@@ -1,7 +1,7 @@
 from flask import request, session, url_for, render_template, flash
 from werkzeug.utils import redirect
 
-from services.user_service import login
+from services.auth_service import login
 
 
 def login_route():
@@ -12,7 +12,7 @@ def login_route():
             session['username'] = request.form['username']
             return redirect(url_for('home'))
         else:
-            flash('Incorrect credentials', 'errors')
+            flash('Incorrect credentials!', 'errors')
             return redirect(url_for('login'))
     else:
         return render_template('auth/login.html')

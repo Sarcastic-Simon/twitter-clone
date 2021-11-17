@@ -1,0 +1,16 @@
+{% if g.user.username == username %}
+  <a href="/logout" class="button">Logout</a>
+{% else %}
+  {% if username in g.user.followers %}
+    <a href="{{ url_for('unfollow', username=username) }}"
+       class="button">
+      Unfollow
+    </a>
+  {% else %}
+    <a href="{{ url_for('follow', username=username) }}"
+       class="button">
+      Follow
+    </a>
+  {% endif %}
+{% endif %}
+

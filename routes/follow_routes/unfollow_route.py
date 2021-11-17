@@ -1,7 +1,7 @@
 from flask import url_for, g
 from werkzeug.utils import redirect
 
-from services.user_service import remove_follower
+from services.follow_service import remove_follower
 
 
 def unfollow_route(username: str):

@@ -1,0 +1,24 @@
+.navigation {
+  height: 100%;
+  width: 20%;
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  padding-left: 30px;
+  border-right: 2px solid var(--blue);
+}
+
+.content {
+  margin-left: 20%;
+  width: 60%;
+  padding-left: 30px;
+}
+
+.sidebar {
+  height: 100%;
+  width: 20%;
+  position: fixed;
+  right: 0px;
+  top: 0px;
+  border-left: 2px solid var(--blue);
+}

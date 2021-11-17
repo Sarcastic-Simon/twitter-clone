@@ -1,9 +1,0 @@
-{% if username in g.user.followers %}
-  <a href="{{ url_for('unfollow', username=username) }}">
-    Unfollow
-  </a>
-{% else %}
-  <a href="{{ url_for('follow', username=username) }}">
-    Follow
-  </a>
-{% endif %}
