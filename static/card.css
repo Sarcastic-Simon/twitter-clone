@@ -1,19 +1,19 @@
 .card {
-  width: 50%;
-  border: 2px solid var(--blue);
-  border-radius: 15px;
-  padding: 15px;
-  margin: 15px;
-  margin-left: 0px;
+    width: 50%;
+    border: 2px solid var(--blue);
+    border-radius: 15px;
+    padding: 15px;
+    margin: 15px;
+    margin-left: 0px;
 }
 
 .profile-link {
-  text-decoration: none;
-  color: var(--blue);
-  font-weight: bold;
+    text-decoration: none;
+    color: var(--blue);
+    font-weight: bold;
 }
 
 .tweet-date {
-  color: gray;
-  font-size: 0.9rem;
+    color: gray;
+    font-size: 0.9rem;
 }

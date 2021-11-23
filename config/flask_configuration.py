@@ -1,8 +1,9 @@
 from os import getenv
 
+from flask import session, g
 from flask_humanize import Humanize
 
-from config import setup_user
+from services.user_service import get_user
 
 
 def configure_flask(app):
@@ -10,5 +11,5 @@ def configure_flask(app):
     Humanize(app)
 
     @app.before_request
-    def setup_context(): setup_user()
-
+    def setup_context():
+        g.user = get_user(session.get('username'))

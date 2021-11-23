@@ -5,9 +5,6 @@ from services.tweet_service import get_follower_tweets, post_tweet
 
 
 def home_route():
-    if g.user is None:
-        return redirect(url_for('login'))
-
     if request.method == 'POST':
         post_tweet(g.user.username,
                    request.form['message'])

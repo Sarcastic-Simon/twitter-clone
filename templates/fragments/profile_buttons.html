@@ -1,16 +1,14 @@
 {% if g.user.username == username %}
-  <a href="/logout" class="button">Logout</a>
-{% else %}
-  {% if username in g.user.followers %}
-    <a href="{{ url_for('unfollow', username=username) }}"
-       class="button">
-      Unfollow
-    </a>
-  {% else %}
+    <a href="/logout" class="button">Logout</a>
+{% elif username not in g.user.followers %}
     <a href="{{ url_for('follow', username=username) }}"
        class="button">
-      Follow
+        Follow
     </a>
-  {% endif %}
+{% elif username in g.user.followers %}
+    <a href="{{ url_for('unfollow', username=username) }}"
+       class="button">
+        Unfollow
+    </a>
 {% endif %}
 

@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>{% block title %}{% endblock %} - Twitter</title>
-  {% include 'layout/static_files.html' %}
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %} - Twitter</title>
+    {% include 'layout/static_files.html' %}
 </head>
 <body>
-  <div class="navigation">
-    <h1>Twitter</h1>
-    {% include 'fragments/navigation.html' %}
-  </div>
-  <div class="content">
-    {% block content %}{% endblock %}
-  </div>
-  <div class="sidebar"></div>
+    <div class="navigation">
+        <h1>Twitter</h1>
+        {% include 'fragments/navigation.html' %}
+    </div>
+    <div class="content">
+        {% block content %}{% endblock %}
+    </div>
+    <div class="sidebar"></div>
 </body>
 </html>

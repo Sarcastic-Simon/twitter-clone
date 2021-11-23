@@ -1,14 +1,14 @@
 {% for tweet in tweets %}
-  <div class="card">
-    <p>
-      <a href="{{ url_for('profile', username=tweet.author) }}"
-         class="profile-link">
-        {{ tweet.author }}
-      </a>
-      <span class="tweet-date">
-        {{ tweet.date_published|humanize }}
-      </span>
-    </p>
-    <p>{{ tweet.message }}</p>
-  </div>
+    <div class="card">
+        <p>
+            <a href="{{ url_for('profile', username=tweet.author) }}"
+               class="profile-link">
+                {{ tweet.author }}
+            </a>
+            <span class="tweet-date">
+            {{ tweet.date_published|humanize }}
+          </span>
+        </p>
+        <p>{{ tweet.message }}</p>
+    </div>
 {% endfor %}

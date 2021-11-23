@@ -1,9 +1,9 @@
 {% macro input(name, type='text') -%}
-  <input id="{{ name }}" name="{{ name }}" required
-         placeholder="{{ name|capitalize }}" type="{{ type }}">
+    <input id="{{ name }}" name="{{ name }}" required
+           placeholder="{{ name|capitalize }}" type="{{ type }}">
 {%- endmacro %}
 
 {% macro textarea(name, placeholder) -%}
-  <textarea id="{{ name }}" name="{{ name }}" required
-            placeholder="{{ placeholder }}"></textarea>
+    <textarea id="{{ name }}" name="{{ name }}" required
+              placeholder="{{ placeholder }}"></textarea>
 {%- endmacro %}

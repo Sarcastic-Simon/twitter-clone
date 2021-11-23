@@ -1,12 +1,13 @@
 {% extends 'layout/base.html' %}
 
 {% block title %}
-  Twitter
+    Twitter
 {% endblock %}
 
 {% block content %}
-  <h1>Home</h1>
-  {% include 'fragments/create_tweet.html' %}
-  <h2>Latest from your followers</h2>
-  {% include 'fragments/list_tweets.html' %}
+    <h1>Home</h1>
+    {% include 'fragments/create_tweet.html' %}
+
+    <h2>Latest from your followers</h2>
+    {% include 'fragments/list_tweets.html' %}
 {% endblock %}
